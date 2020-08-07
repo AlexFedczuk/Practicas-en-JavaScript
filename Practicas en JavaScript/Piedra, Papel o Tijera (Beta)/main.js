@@ -6,13 +6,12 @@ var tijera = 3;
 var opcionDelBOT;
 var opcionDelJugador;
 // Las variables que contaran las "victorias" del BOT o el jugador. 
-var contadorDelBOT = 2;
-var contadorDelJugador = 2;
+var contadorDelBOT = 0;
+var contadorDelJugador = 0;
 // Finalizador de la partida.
-var end;
+var end = false;
 
-// Inicio del juego
-do{
+do {
     opcionDelBOT = Math.floor((Math.random() * 3) + 1);
     opcionDelJugador = prompt("Eliga una opcion: Piedra(1), Papel(2) o Tijera(3)","Ingrese un numero");
 
@@ -27,8 +26,6 @@ do{
 
 console.log("-El contador de rondas FINAL del BOT: " +contadorDelBOT);
 console.log("-El contador de rondas FINAL del Jugador: " +contadorDelJugador);
-// Fin del juego
-
 
 //---Funciones del juego---
 
@@ -67,17 +64,15 @@ function procesarBOT(piedra,papel,tijera,opcionDelJugador,opcionDelBOT,contadorD
 }
 
 function mostrarInfoDeLasRondas(contadorDelBOT,contadorDelJugador){
-
-    document.write("BOT, rondas ganadas: " +contadorDelBOT+ "</br>");
-    document.write("Jugador, rondas ganadas: " +contadorDelJugador+ "</br></br>");
+    
+    console.log("Rondas ganadas por el BOT: " +contadorDelBOT);
+    console.log("Rondas ganadas por el Jugador: " +contadorDelJugador);
 }
 
 function procesarContadores(contadorDelJugador,contadorDelBOT,end){
     
     if(contadorDelJugador==3 || contadorDelBOT==3){
-        end = true;
-    }else{
-        end = false;
+        end=true;
     }
 
     return end;
